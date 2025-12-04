@@ -1,6 +1,6 @@
-# Next Engine - Guia de Deploy com Docker Swarm e Traefik
+# Next Evolution - Guia de Deploy com Docker Swarm e Traefik
 
-Este guia fornece instruções sobre como implantar a landing page da Next Engine em um ambiente de produção moderno usando **Docker Swarm** como orquestrador e **Traefik** como proxy reverso e gerenciador de SSL.
+Este guia fornece instruções sobre como implantar a landing page da Next Evolution em um ambiente de produção moderno usando **Docker Swarm** como orquestrador e **Traefik** como proxy reverso e gerenciador de SSL.
 
 Este método oferece descoberta automática de serviços, balanceamento de carga e renovação de certificados SSL de forma automatizada.
 
@@ -14,8 +14,8 @@ Para rodar o projeto em sua máquina local para desenvolvimento, siga os passos 
 
 2.  **Clone o repositório**:
     ```bash
-    git clone https://github.com/seu-usuario/nextengine.git
-    cd nextengine
+    git clone https://github.com/seu-usuario/nextevolution.git
+    cd nextevolution
     ```
 
 3.  **Instale as dependências**:
@@ -52,8 +52,8 @@ Antes de começar, certifique-se de que seu ambiente na VPS (Hetzner, etc.) aten
 
 1.  **Clone o repositório** na sua VPS:
     ```bash
-    git clone https://github.com/seu-usuario/nextengine.git
-    cd nextengine
+    git clone https://github.com/seu-usuario/nextevolution.git
+    cd nextevolution
     ```
 2.  **Crie o `Dockerfile`**:
     Crie um arquivo chamado `Dockerfile` (sem extensão) na raiz do projeto e adicione o seguinte conteúdo. Ele usa um *multi-stage build* para criar uma imagem otimizada.
@@ -93,19 +93,19 @@ Agora que o `Dockerfile` existe, você pode construir a imagem. É uma boa prát
 
 ```bash
 # O -t define o nome e a tag da imagem (nome:tag)
-docker build -t nextengine:1.1 .
+docker build -t nextevolution:1.1 .
 ```
 
 #### Passo 3: Implante o "Stack"
 
-Com a imagem `nextengine:1.1` criada localmente na sua VPS, podemos implantar o stack.
+Com a imagem `nextevolution:1.1` criada localmente na sua VPS, podemos implantar o stack.
 
 ```bash
-docker stack deploy -c docker-compose.yml nextengine
+docker stack deploy -c docker-compose.yml nextevolution
 ```
 
 -   `-c docker-compose.yml`: Especifica o arquivo de composição.
--   `nextengine`: É o nome que daremos ao nosso "stack" (conjunto de serviços).
+-   `nextevolution`: É o nome que daremos ao nosso "stack" (conjunto de serviços).
 
 O Swarm agora irá garantir que o serviço esteja sempre rodando. O Traefik detectará as labels, solicitará o certificado SSL e começará a rotear o tráfego para seu site.
 
@@ -115,18 +115,18 @@ Para implantar uma nova versão do código, o fluxo é:
 
 ```bash
 # 1. Na sua VPS, vá para a pasta do projeto e puxe as alterações
-cd /caminho/para/nextengine
+cd /caminho/para/nextevolution
 git pull
     
 # 2. Reconstrua a imagem com uma nova tag de versão
-docker build -t nextengine:1.2 .
+docker build -t nextevolution:1.2 .
     
 # 3. ATENÇÃO: Edite o arquivo docker-compose.yml e atualize a tag da imagem
-# Troque 'image: nextengine:1.1' para 'image: nextengine:1.2'
+# Troque 'image: nextevolution:1.1' para 'image: nextevolution:1.2'
 nano docker-compose.yml
     
 # 4. Execute o deploy novamente para que o Swarm atualize o serviço
-docker stack deploy -c docker-compose.yml nextengine
+docker stack deploy -c docker-compose.yml nextevolution
 ```
 
 ### Solução de Problemas Avançada
@@ -140,12 +140,12 @@ Em vez de acessar seu servidor pela porta 80, o Traefik usará a API do seu prov
 
 **Como implementar com Cloudflare (Recomendado e Gratuito):**
 
-1.  **Crie uma conta na Cloudflare** e adicione seu site `nextengine.com.br`.
+1.  **Crie uma conta na Cloudflare** e adicione seu site `nextevolution.com.br`.
 2.  **Altere os Nameservers:** No seu registrador de domínio (ex: Registro.br), substitua os nameservers existentes pelos fornecidos pela Cloudflare. Isso dará à Cloudflare o controle do DNS.
 3.  **Crie um API Token na Cloudflare:**
     *   No painel da Cloudflare, vá em `My Profile > API Tokens > Create Token`.
     *   Use o template **"Edit zone DNS"**.
-    *   Em "Zone Resources", selecione `Specific zone > nextengine.com.br`.
+    *   Em "Zone Resources", selecione `Specific zone > nextevolution.com.br`.
     *   Crie o token e **copie-o imediatamente**.
 4.  **Configure o Traefik:** Você precisa adicionar o token da API ao seu **serviço principal do Traefik**. A forma mais comum é através de variáveis de ambiente no `docker-compose.yml` do Traefik.
 
@@ -172,6 +172,6 @@ Em vez de acessar seu servidor pela porta 80, o Traefik usará a API do seu prov
             provider: cloudflare
     ```
 6.  **Reimplante o Traefik** para aplicar as novas configurações.
-7.  **Reimplante sua aplicação `nextengine`** usando o `docker-compose.yml` deste repositório, que já está preparado para funcionar bem com o `DNS-01`.
+7.  **Reimplante sua aplicação `nextevolution`** usando o `docker-compose.yml` deste repositório, que já está preparado para funcionar bem com o `DNS-01`.
 
 Este processo, embora envolva mais passos iniciais, resolve 99% dos problemas persistentes de certificado SSL e é a arquitetura recomendada para produção.
