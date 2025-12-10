@@ -788,53 +788,6 @@ section[id] {
     transform: translateY(0);
 }
 
-/* Seção de Métricas */
-.metrics-section {
-    padding: 4rem 0;
-    margin-top: -4rem;
-    /* Sobrepor levemente o hero ou ajustar espaçamento */
-    position: relative;
-    z-index: 10;
-}
-
-.metrics-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.metric-item {
-    text-align: center;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.metric-number {
-    font-size: 3.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--primary-green), var(--primary-blue));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-}
-
-.metric-symbol {
-    font-size: 2rem;
-    color: var(--primary-green);
-    font-weight: 700;
-}
-
-.metric-label {
-    font-size: 1.1rem;
-    color: var(--medium-text);
-    font-weight: 500;
-}
-
 /* Scroll Reveal Animations */
 .reveal {
     opacity: 0;
