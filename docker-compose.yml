@@ -5,7 +5,7 @@ services:
     image: nextevolution:1.1 # Mantenha a versão da sua imagem aqui
     networks:
       - network_public # IMPORTANTE: Verifique se este é o nome correto da sua rede Traefik
-    
+
     deploy:
       replicas: 1
       update_config:
@@ -20,18 +20,18 @@ services:
 
         # --- Roteador Principal (HTTPS) ---
         # A regra agora captura tanto o domínio principal quanto o 'www'
-        - "traefik.http.routers.nextevolution-app.rule=Host(`nextevolution.com.br`, `www.nextevolution.com.br`)"
+        - "traefik.http.routers.nextevolution-app.rule=Host(`nextevolution.ia.br`, `www.nextevolution.ia.br`)"
         - "traefik.http.routers.nextevolution-app.entrypoints=websecure"
         - "traefik.http.routers.nextevolution-app.tls=true"
         - "traefik.http.routers.nextevolution-app.tls.certresolver=letsencrypt" # IMPORTANTE: Use o nome do seu resolver configurado para DNS-01
 
         # --- Middleware para redirecionar WWW para o domínio principal ---
         - "traefik.http.routers.nextevolution-app.middlewares=redirect-www"
-        - "traefik.http.middlewares.redirect-www.redirectregex.regex=^https://www.nextevolution.com.br/(.*)"
-        - "traefik.http.middlewares.redirect-www.redirectregex.replacement=https://nextevolution.com.br/$${1}"
+        - "traefik.http.middlewares.redirect-www.redirectregex.regex=^https://www.nextevolution.ia.br/(.*)"
+        - "traefik.http.middlewares.redirect-www.redirectregex.replacement=https://nextevolution.ia.br/$${1}"
 
         # --- Roteador para redirecionamento HTTP -> HTTPS (boa prática) ---
-        - "traefik.http.routers.nextevolution-http.rule=Host(`nextevolution.com.br`, `www.nextevolution.com.br`)"
+        - "traefik.http.routers.nextevolution-http.rule=Host(`nextevolution.ia.br`, `www.nextevolution.ia.br`)"
         - "traefik.http.routers.nextevolution-http.entrypoints=web"
         - "traefik.http.routers.nextevolution-http.middlewares=redirect-to-https"
         - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
