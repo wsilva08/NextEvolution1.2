@@ -175,7 +175,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 <h4>2. Uso de Informações</h4>
                 <p>Apenas retemos as informações coletadas pelo tempo necessário para fornecer o serviço solicitado. Quando armazenamos dados, protegemos dentro de meios comercialmente aceitáveis para evitar perdas e roubos, bem como acesso, divulgação, cópia, uso ou modifição não autorizados.</p>
                 <h4>3. Divulgação a Terceiros</h4>
-                <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>`
+                <p>Não compartilhamos informações de identificação pessoal publicamente ou com terceiros, exceto quando exigido por lei.</p>
+                <h4>4. Conformidade com a LGPD</h4>
+                <p>A Next Evolution está em conformidade com a Lei Geral de Proteção de Dados (LGPD), Lei nº 13.709/2018, que visa proteger os dados pessoais de todos os cidadãos.</p>
+                <h4>5. Seus Direitos</h4>
+                <p>Você tem o direito de solicitar acesso, correção, exclusão ou portabilidade dos seus dados. Também pode retirar o consentimento ou opor-se ao processamento a qualquer momento.</p>
+                <h4>6. Contato do DPO</h4>
+                <p>Para exercer seus direitos ou para quaisquer dúvidas relacionadas à proteção de seus dados, entre em contato com nosso Encarregado de Proteção de Dados (DPO) através do e-mail: dpo@nextevolution.ia.br</p>`
         },
         terms: {
             title: 'Termos de Uso',
@@ -194,15 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p>Como é prática comum em quase todos os sites profissionais, este site usa cookies, que são pequenos arquivos baixados no seu computador, para melhorar sua experiência. Esta página descreve quais informações eles coletam, como as usamos e por que às vezes precisamos armazenar esses cookies.</p>
                 <h4>Como usamos cookies?</h4>
                 <p>Utilizamos cookies por vários motivos, detalhados abaixo. Infelizmente, na maioria dos casos, não existem opções padrão do setor para desativar os cookies sem desativar completamente a funcionalidade e os recursos que eles adicionam a este site. É recomendável que você deixe todos os cookies se não tiver certeza se precisa ou não deles, caso sejam usados para fornecer um serviço que você usa.</p>`
-        },
-        lgpd: {
-            title: 'Conformidade com a LGPD',
-            content: `
-                <p>A Next Evolution está em conformidade com a Lei Geral de Proteção de Dados (LGPD), Lei nº 13.709/2018, que visa proteger os dados pessoais de todos os cidadãos.</p>
-                <h4>Seus Direitos</h4>
-                <p>Você tem o direito de solicitar acesso, correção, exclusão ou portabilidade dos seus dados. Também pode retirar o consentimento ou opor-se ao processamento a qualquer momento.</p>
-                <h4>Contato do DPO</h4>
-                <p>Para exercer seus direitos ou para quaisquer dúvidas relacionadas à proteção de seus dados, entre em contato com nosso Encarregado de Proteção de Dados (DPO) através do e-mail: dpo@nextevolution.ia.br</p>`
         }
     };
 
