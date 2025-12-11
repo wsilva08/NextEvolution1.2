@@ -842,8 +842,9 @@ section[id] {
 }
 
 #contact-modal .modal-header {
-    padding-bottom: 1rem;
+    padding: 1rem 1.5rem 0.75rem;
     margin-bottom: 0;
+    border-bottom: none;
 }
 
 
@@ -893,6 +894,10 @@ section[id] {
     max-width: 480px;
 }
 
+#contact-modal .modal-body {
+    padding: 0.5rem 1.5rem 1.25rem;
+}
+
 #contact-modal-title {
     font-size: 1.8rem;
     font-weight: 700;
@@ -910,7 +915,7 @@ section[id] {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.9rem;
 }
 
 .form-group {
@@ -919,18 +924,18 @@ section[id] {
 }
 
 .form-group label {
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.3rem;
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     color: #4b5563;
 }
 
 .form-group input,
 .form-group select {
-    padding: 0.8rem 1rem;
+    padding: 0.6rem 0.9rem;
     border: 2px solid var(--light-gray);
     border-radius: 8px;
-    font-size: 1rem;
+    font-size: 0.95rem;
     font-family: var(--font-family);
     transition: all 0.2s ease-in-out;
     background-color: var(--light-gray);
@@ -973,6 +978,7 @@ section[id] {
         opacity: 0;
         transform: translateY(-5px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1016,10 +1022,10 @@ section[id] {
 
 .btn.btn-full-width {
     width: 100%;
-    padding-top: 0.85rem;
-    padding-bottom: 0.85rem;
-    font-size: 1.1rem;
-    margin-top: 0.5rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    font-size: 1rem;
+    margin-top: 0.25rem;
     font-weight: 600;
     box-shadow: 0 4px 15px rgba(37, 99, 235, 0.2);
 }
