@@ -527,8 +527,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 const navMenu = document.getElementById('nav-menu');
                 const hamburger = document.querySelector('.hamburger');
 
-                navMenu?.classList.remove('active');
+                navMenu?.classList.remove('is-active');
+                hamburger?.classList.remove('is-active');
                 hamburger?.setAttribute('aria-expanded', 'false');
+                hamburger?.setAttribute('aria-label', 'Abrir menu');
                 document.body.classList.remove('no-scroll');
 
                 const headerOffset = 80;
