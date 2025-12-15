@@ -5,6 +5,12 @@ import './index.css';
  * SPDX-License-Identifier: Apache-2.0
  */
 import { states } from './brazil-states-cities';
+import { injectSpeedInsights } from '@vercel/speed-insights';
+
+// Initialize Vercel Speed Insights (client-side only)
+if (typeof window !== 'undefined') {
+    injectSpeedInsights();
+}
 
 document.addEventListener('DOMContentLoaded', () => {
 
