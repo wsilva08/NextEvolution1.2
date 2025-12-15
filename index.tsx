@@ -4,7 +4,11 @@ import './index.css';
  * Copyright 2025 Google LLC
  * SPDX-License-Identifier: Apache-2.0
  */
+import { inject } from '@vercel/analytics';
 import { states } from './brazil-states-cities';
+
+// Initialize Vercel Web Analytics
+inject();
 
 document.addEventListener('DOMContentLoaded', () => {
 
